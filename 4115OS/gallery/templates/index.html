@@ -1,0 +1,54 @@
+$def with(user,galleries,page,pages,perpage)
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Gallery Application</title>
+</head>
+<body>
+	<header>
+		<h1>Image Gallery Application</h1>
+	</header>
+	<div class="content">
+	$if user:
+		<p>
+			You are logged in as: $user.login |
+			<a href="/logout">
+				Logout
+			</a>
+		</p>
+		<div class="galleries">
+		$for gallery in galleries:
+			<div class="gallery">
+				<strong>$gallery.title</strong><br/>
+				<i>$gallery.description</i>
+			</div>
+		$else:
+			<h3>No galleries created</h3>
+		</div>
+	$else:
+		<p>
+			<form action="/login" method="GET">
+				<p><span>Login:</span><input name="login" type="text" size="40" />
+				   <span>Password:</span><input name="password" type="password" size="40"></textarea>
+				   <input type="submit" name="submit" value="Login" /></p>
+			</form>
+			<a href="/register">Register</a>
+		</p>
+	</div>
+	<footer>
+		<p>Display:
+		$if perpage == 0:
+			All |
+		$else:
+			<a href="/">All</a> |
+		$for current_page in range(0, int(pages)):
+			$if current_page == page:
+				$page
+			$else:
+				<a href="/?page=$current_page&pages=${pages}&perpage=${perpage}">${current_page + 1}</a>
+		</p>
+	$if user:
+		<a href="/gallery?action=new">Create New Gallery</a>
+	</footer>
+</body>
+</html>

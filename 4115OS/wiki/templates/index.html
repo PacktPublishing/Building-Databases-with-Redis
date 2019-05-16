@@ -1,0 +1,32 @@
+$def with(pages)
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Simplest Wiki Application</title>
+</head>
+<body>
+	<header>
+		<h1>The Simplest Wiki Application</h1>
+	</header>
+	<div class="content">
+	<h2>Pages:</h2>
+	<table border="1px">
+	$for page in pages:
+		<tr>
+			<td>
+				<a href="/page?action=view&title=$page.title">$page.title</a>
+			</td>
+			<td>
+				$page.text
+			</td>
+			<td>
+				<a href="/page?action=del&title=$page.title">del</a></li>
+			</td>
+	</table>
+	</div>
+	<br/>
+	<footer>
+		<a href="/page?action=new">Create new wiki page</a>
+	</footer>
+</body>
+</html>

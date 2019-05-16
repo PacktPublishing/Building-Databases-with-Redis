@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Simplest Wiki Application | New page</title>
+</head>
+<body>
+	<header>
+		<h1>Create New Wiki Page</h1>
+	</header>
+	<div class ="content">
+		<form action="/page?action=save" method="POST">
+		<p><span>Title:</span><input name="title" type="text" size="40" /></p>
+		<p><span>Text:</span><textarea rows="10" cols="45" name="text"></textarea></p>
+		<p><input type="submit" name="submit" value="Save" /></p>
+		</form>
+	</div>
+	<footer>
+		<a href="/">Go back home</a>
+	</footer>
+</body>
+</html>

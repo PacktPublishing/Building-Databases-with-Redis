@@ -1,0 +1,23 @@
+$def with(title, body, views)
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Simplest Wiki Application | New page</title>
+</head>
+<body>
+	<header>
+		<h1>$title</h1>
+	</header>
+	<div class ="content">
+		<p>
+			<span>Text:</span>
+			$body
+		</p>
+	</div>
+	<footer>
+		<span>Page was visited $views times</span>
+		<br/><br/>
+		<a href="/">Go back home</a>
+	</footer>
+</body>
+</html>
